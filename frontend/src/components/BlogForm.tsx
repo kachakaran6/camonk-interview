@@ -9,7 +9,7 @@ import { useNavigate } from "react-router-dom";
 
 const BlogForm = () => {
   const navigate = useNavigate();
-  const { mutate, isLoading, error } = useCreateBlog();
+  const { mutate, isPending, error } = useCreateBlog();
 
   const [title, setTitle] = useState("");
   const [category, setCategory] = useState("");
@@ -117,8 +117,8 @@ const BlogForm = () => {
                 Cancel
               </Button>
 
-              <Button type="submit" disabled={isLoading}>
-                {isLoading ? "Creating..." : "Create Blog"}
+              <Button type="submit" disabled={isPending}>
+                {isPending ? "Creating..." : "Create Blog"}
               </Button>
             </div>
           </form>
